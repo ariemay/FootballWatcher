@@ -1,0 +1,46 @@
+<resources>
+    <string name="app_name">Football Watcher</string>
+    <string name="welcome">Welcome to</string>
+    <string name="last">Last Match</string>
+    <string name="next">Next Match</string>
+    <string name="goalers">Goalers</string>
+    <string name="yellowcard">Yellow Card</string>
+    <string name="redcard">Red Card</string>
+    <string name="Forward">Forward</string>
+    <string name="Midfielder">Midfielder</string>
+    <string name="Defender">Defender</string>
+    <string name="Keeper">Keeper</string>
+    <string name="zero">0</string>
+    <string name="strip">-</string>
+    <string name="Home">Home</string>
+    <string name="Away">Away</string>
+    <string name="favorites">Favorites</string>
+    <string name="search">Search</string>
+    <string name="last_match">Last Match</string>
+    <string name="next_match">Next Match</string>
+    <string name="homeTeam">Juventus</string>
+    <string name="homeScore">5</string>
+    <string name="versus">vs</string>
+    <string name="barcelona">Barcelona</string>
+    <string name="dateView">Sun, 01-05-1988</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_match_tabbed">MatchActivityTabbed</string>
+    <string name="action_settings">Settings</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="Team">Team</string>
+    <string name="matches">Matches</string>
+    <string name="Matches">Matches</string>
+    <string name="teams">Teams</string>
+    <string name="_01_00">01:00</string>
+    <string name="teamName">Juventus</string>
+    <string name="juventus">Juventus</string>
+    <string name="position">Defender</string>
+    <string name="weight_kg">Weight (kg)</string>
+    <string name="height_m">Height (m)</string>
+    <string name="weight">70kg</string>
+    <string name="height">170m</string>
+    <string name="loremIpsum">Lorem ipsum dolor sit amet, mea brute reprimique neglegentur te, meis deseruisse at cum, mei ei vero propriae lucilius. Discere tincidunt his id, in altera putent eripuit has. Eam tamquam admodum sapientem at, oratio partem utroque cum ut. Movet habemus luptatum ad cum. Stet mundi affert eum eu, quo iisque imperdiet persequeris at. Cum ferri dolore legere ad. Et ferri nihil adipisci qui. Summo decore appetere quo eu, eu sea possit iisque praesent. Dicta maluisset delicatissimi sea ut. Per ad affert legere, homero tincidunt suscipiantur cu mea, feugiat accusata persequeris mel et. Ut decore numquam legendos mea. Id vis dignissim maiestatis. Ex quo primis iriure vituperatoribus. His ne quas graeci. Has eu aperiri indoctum, eirmod</string>
+    <string name="player">Dybala</string>
+</resources>

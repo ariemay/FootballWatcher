@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="homeTeamName" type="id"/>
+    <item name="homeTeamScore" type="id"/>
+    <item name="vsTV" type="id"/>
+    <item name="awayTeamScore" type="id"/>
+    <item name="awayTeamName" type="id"/>
+    <item name="dateEvent" type="id"/>
+    <item name="last_matches" type="id"/>
+    <item name="next_matches" type="id"/>
+    <item name="teams" type="id"/>
+</resources>
