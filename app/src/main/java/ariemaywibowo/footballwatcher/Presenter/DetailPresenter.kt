@@ -40,7 +40,7 @@ class DetailPresenter : DetailInterface {
             val jObj = JSONObject(response)
             success = jObj.getBoolean("success")
         } catch (e: Exception) {
-
+            Log.i("ERRORONSUCCESS", e.toString())
         }
         return success
     }
