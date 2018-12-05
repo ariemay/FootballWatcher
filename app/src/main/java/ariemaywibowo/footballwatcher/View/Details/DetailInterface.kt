@@ -1,4 +1,4 @@
-package ariemaywibowo.footballwatcher.Views.Details
+package ariemaywibowo.footballwatcher.View.Details
 
 import android.app.Activity
 import android.content.Context

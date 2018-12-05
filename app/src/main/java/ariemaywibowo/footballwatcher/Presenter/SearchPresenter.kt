@@ -4,7 +4,7 @@ import android.util.Log
 import ariemaywibowo.footballwatcher.Models.EventsItem
 import org.json.JSONObject
 
-class SearchPresenter () {
+class SearchPresenter {
     fun parsingSearch(response: String): ArrayList<EventsItem> {
         Log.i("RESPONSE IN PARSING", response)
         val dataList: ArrayList<EventsItem> = ArrayList()

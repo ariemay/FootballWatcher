@@ -107,7 +107,7 @@ class PlayerActivity: AppCompatActivity(), MainView {
         } else if (item.itemId == R.id.add_to_favorite) {
             if (isFavorite) {
                 presenter.removeFav(this, mData)
-                Log.i("TAG REMOVE", "Remove fav")
+                Log.i("TAG REMOVE", mData.toString())
             } else {
                 presenter.addFav(this, mData)
                 Log.i("TAG ADD", mData.toString())
@@ -125,5 +125,9 @@ class PlayerActivity: AppCompatActivity(), MainView {
 
     override fun hideLoading() {
         teamDetbar.invisible()
+    }
+
+    override fun onBackPressed() {
+        finish()
     }
 }

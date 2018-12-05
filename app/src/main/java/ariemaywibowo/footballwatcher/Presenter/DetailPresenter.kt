@@ -9,7 +9,7 @@ import ariemaywibowo.footballwatcher.Models.EventsItem
 import ariemaywibowo.footballwatcher.Server.RetroService
 import ariemaywibowo.footballwatcher.Server.ServUtils
 import ariemaywibowo.footballwatcher.Utility.OutputServerStats
-import ariemaywibowo.footballwatcher.Views.Details.DetailInterface
+import ariemaywibowo.footballwatcher.View.Details.DetailInterface
 import okhttp3.ResponseBody
 import org.jetbrains.anko.db.classParser
 import org.jetbrains.anko.db.delete

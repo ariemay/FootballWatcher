@@ -66,8 +66,9 @@ class PlayerPresenter (private val view: PlayerActivity) {
         try {
             context.database.use {
                 delete(TeamsItem.TABLE_TEAM_FAV,
-                    TeamsItem.IDLONG+ " = {id}",
+                    TeamsItem.ID_TEAM + " = {id}",
                     "id" to data.idTeam.toString())
+                Log.i("DELETE", data.idTeam.toString())
             }
         } catch (e: SQLiteConstraintException) {
             Log.i("RemovingError", e.toString())

@@ -6,6 +6,7 @@ import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
+import android.support.v4.widget.SwipeRefreshLayout
 import android.support.v7.widget.LinearLayoutManager
 import android.util.Log
 import android.view.Menu
@@ -42,6 +43,7 @@ class TeamListActivity : AppCompatActivity(), MainView {
     private var navMenu = 1
     private var presenter = TeamPresenter(this)
     private var teamSearchPresenter = TeamSearchPresenter()
+    private lateinit var swipeRefresh : SwipeRefreshLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,6 +52,18 @@ class TeamListActivity : AppCompatActivity(), MainView {
         allLeagues()
         callSpinner(navMenu)
         startTeamBottomNav()
+
+        swipeRefresh = teamSwipe
+        swipeRefresh.setOnRefreshListener {
+            if (swipeRefresh.isRefreshing) {
+                swipeRefresh.isRefreshing = false
+                showLoading()
+                callSpinner(navMenu)
+                containerToShow(spinnerID, navMenu)
+                hideLoading()
+            }
+
+        }
     }
 
     private fun allLeagues() {
