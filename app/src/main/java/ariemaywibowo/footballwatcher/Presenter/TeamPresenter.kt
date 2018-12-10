@@ -70,12 +70,18 @@ class TeamPresenter (private val view: TeamListActivity) {
                 val idTeam = data.getString("idTeam")
                 val strTeam= data.getString("strTeam")
                 val strTeamBadge = data.getString("strTeamBadge")
+                val strStadium = data.getString("strStadium")
+                val strManager = data.getString("strManager")
+                val strFanart = data.getString("strTeamFanart1")
                 dataList.add(
-                    TeamsItem(
-                        i.toLong(), idTeam,
-                        strTeam,
-                        strTeamBadge
-                    )
+                        TeamsItem(
+                                i.toLong(), idTeam,
+                                strTeam,
+                                strTeamBadge,
+                                strStadium,
+                                strManager,
+                                strFanart
+                        )
                 )
                 Log.i("DATALIST", dataList.toString())
             }

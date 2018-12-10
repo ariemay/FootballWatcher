@@ -26,8 +26,8 @@ class DetailPresenter : DetailInterface {
         try {
             context.database.use {
                 delete(EventsItem.TABLE_FAVORITES,
-                    EventsItem.ID_EVENT + " = {id}",
-                    "id" to data.idEvent.toString())
+                        EventsItem.ID_EVENT + " = {id}",
+                        "id" to data.idEvent.toString())
             }
         } catch (e: SQLiteConstraintException) {
             Log.i("RemovingError", e.toString())
@@ -50,9 +50,9 @@ class DetailPresenter : DetailInterface {
 
         context.database.use {
             val favorites = select(EventsItem.TABLE_FAVORITES)
-                .whereArgs(EventsItem.ID_EVENT + " = {id}",
-                    "id" to data.idEvent.toString())
-                .parseList(classParser<EventsItem>())
+                    .whereArgs(EventsItem.ID_EVENT + " = {id}",
+                            "id" to data.idEvent.toString())
+                    .parseList(classParser<EventsItem>())
 
             bFavorite = !favorites.isEmpty()
         }
@@ -104,17 +104,18 @@ class DetailPresenter : DetailInterface {
         try {
             context.database.use {
                 insert(EventsItem.TABLE_FAVORITES,
-                    EventsItem.ID to data.id,
-                    EventsItem.DATE_EVENT to data.dateEvent,
-                    EventsItem.ID_AWAY_TEAM to data.idAwayTeam,
-                    EventsItem.ID_EVENT to data.idEvent,
-                    EventsItem.ID_HOME_TEAM to data.idHomeTeam,
-                    EventsItem.ID_LEAGUE to data.idLeague,
-                    EventsItem.INT_AWAY_SCORE to data.intAwayScore,
-                    EventsItem.INT_HOME_SCORE to data.intHomeScore,
-                    EventsItem.STR_AWAY_TEAM to data.strAwayTeam,
-                    EventsItem.STR_HOME_TEAM to data.strHomeTeam
-                    )
+                        EventsItem.ID to data.id,
+                        EventsItem.DATE_EVENT to data.dateEvent,
+                        EventsItem.TIME_EVENT to data.strTime,
+                        EventsItem.ID_AWAY_TEAM to data.idAwayTeam,
+                        EventsItem.ID_EVENT to data.idEvent,
+                        EventsItem.ID_HOME_TEAM to data.idHomeTeam,
+                        EventsItem.ID_LEAGUE to data.idLeague,
+                        EventsItem.INT_AWAY_SCORE to data.intAwayScore,
+                        EventsItem.INT_HOME_SCORE to data.intHomeScore,
+                        EventsItem.STR_AWAY_TEAM to data.strAwayTeam,
+                        EventsItem.STR_HOME_TEAM to data.strHomeTeam
+                )
             }
         } catch (e: SQLiteConstraintException) {
             context.toast("Error: ${e.message}")

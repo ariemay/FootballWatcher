@@ -7,12 +7,13 @@ import kotlinx.android.parcel.Parcelize
 data class EventsItem(
     val id: Long?,
     val dateEvent: String?,
+    val strTime: String?,
     val idAwayTeam: String?,
     val idEvent: String?,
     val idHomeTeam: String?,
     val idLeague: String?,
-    val intAwayScore: String? = "?",
-    val intHomeScore: String? = "?",
+    val intAwayScore: String? = "0",
+    val intHomeScore: String? = "0",
     val strAwayTeam: String?,
     val strHomeTeam: String?
 ) : Parcelable {
@@ -21,6 +22,7 @@ data class EventsItem(
         const val TABLE_FAVORITES = "TABLE_FAVORITES"
         const val ID = "ID"
         const val DATE_EVENT = "DATE_EVENT"
+        const val TIME_EVENT = "TIME_EVENT"
         const val ID_AWAY_TEAM = "ID_AWAY_TEAM"
         const val ID_EVENT = "ID_EVENT"
         const val ID_HOME_TEAM = "ID_HOME_TEAM"

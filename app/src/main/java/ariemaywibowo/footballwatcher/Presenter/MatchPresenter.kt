@@ -27,7 +27,7 @@ class MatchPresenter (private val view: MatchActivity) {
         context?.database?.use {
             Log.i("DATABASE", "Start?")
             val favorites = select(EventsItem.TABLE_FAVORITES)
-                .parseList(classParser<EventsItem>())
+                    .parseList(classParser<EventsItem>())
             Log.i("DATABASE", "Parsed")
             data.addAll(favorites)
         }
@@ -112,31 +112,35 @@ class MatchPresenter (private val view: MatchActivity) {
             Log.i("JSON", jsonObject.toString())
             val message = jsonObject.getJSONArray("events")
             Log.i("JSONARRAY", message.length().toString())
-                for (i in 0 until message.length()) {
-                    val data = message.getJSONObject(i)
-                    val dateEvent = data.getString("dateEvent")
-                    val idAwayTeam = data.getString("idAwayTeam")
-                    val idEvent = data.getString("idEvent")
-                    val idHomeTeam = data.getString("idHomeTeam")
-                    val idLeague = data.getString("idLeague")
-                    val intAwayScore = data.getString("intAwayScore")
-                    val intHomeScore = data.getString("intHomeScore")
-                    val strAwayTeam = data.getString("strAwayTeam")
-                    val strHomeTeam = data.getString("strHomeTeam")
-                    dataList.add(
+            for (i in 0 until message.length()) {
+                val data = message.getJSONObject(i)
+                val dateEvent = data.getString("dateEvent")
+                val timeEvent = data.getString("strTime")
+                val idAwayTeam = data.getString("idAwayTeam")
+                val idEvent = data.getString("idEvent")
+                val idHomeTeam = data.getString("idHomeTeam")
+                val idLeague = data.getString("idLeague")
+                val intAwayScore = data.getString("intAwayScore")
+                val intHomeScore = data.getString("intHomeScore")
+                val strAwayTeam = data.getString("strAwayTeam")
+                val strHomeTeam = data.getString("strHomeTeam")
+                dataList.add(
                         EventsItem(
-                            i.toLong(), dateEvent, idAwayTeam,
-                            idEvent,
-                            idHomeTeam,
-                            idLeague,
-                            intAwayScore,
-                            intHomeScore,
-                            strAwayTeam,
-                            strHomeTeam
+                                i.toLong(),
+                                dateEvent,
+                                timeEvent,
+                                idAwayTeam,
+                                idEvent,
+                                idHomeTeam,
+                                idLeague,
+                                intAwayScore,
+                                intHomeScore,
+                                strAwayTeam,
+                                strHomeTeam
                         )
-                    )
-                    Log.i("DATALIST", dataList.toString())
-                }
+                )
+                Log.i("DATALIST", dataList.toString())
+            }
         } catch (e: Exception) {
             Log.d("TAG", "Response error exception $e")
         }

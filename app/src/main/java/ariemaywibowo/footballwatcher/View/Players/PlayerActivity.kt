@@ -18,11 +18,12 @@ import ariemaywibowo.footballwatcher.R
 import ariemaywibowo.footballwatcher.Utility.OutputServerStats
 import ariemaywibowo.footballwatcher.Utility.invisible
 import ariemaywibowo.footballwatcher.Utility.visible
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_match.*
 import kotlinx.android.synthetic.main.activity_team_detail.*
 import kotlinx.android.synthetic.main.fragment_last_matches.*
 
-class PlayerActivity: AppCompatActivity(), MainView {
+class PlayerActivity: AppCompatActivity() {
 
     private var listPlayers = ArrayList<PlayerItem>()
     private var presenter = PlayerPresenter(this)
@@ -40,6 +41,11 @@ class PlayerActivity: AppCompatActivity(), MainView {
         mData = intent.getParcelableExtra("TO_FAV")
         teamName.text = nameTeam
         getAllPlayer(idTeam)
+
+        Picasso.get().load(mData.strTeamFanart1).fit().centerCrop().into(imageTeam)
+        teamName.text = mData.strTeam
+        stadiumName.text = mData.strStadium
+        coachName.text = mData.strManager
 
     }
 
@@ -117,14 +123,6 @@ class PlayerActivity: AppCompatActivity(), MainView {
             return true
         }
         return false
-    }
-
-    override fun showLoading() {
-        teamDetbar.visible()
-    }
-
-    override fun hideLoading() {
-        teamDetbar.invisible()
     }
 
     override fun onBackPressed() {

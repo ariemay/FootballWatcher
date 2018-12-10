@@ -10,7 +10,9 @@ import android.widget.TextView
 import ariemaywibowo.footballwatcher.Models.EventsItem
 import ariemaywibowo.footballwatcher.R
 import ariemaywibowo.footballwatcher.R.id.*
+import ariemaywibowo.footballwatcher.Utility.Date.baseTime
 import ariemaywibowo.footballwatcher.Utility.Date.changeDate
+import ariemaywibowo.footballwatcher.Utility.Date.toGMTformat
 import org.jetbrains.anko.find
 
 class LastMatchesAdapter(private val context: Context?,
@@ -33,23 +35,32 @@ class LastMatchesAdapter(private val context: Context?,
 
 
 class MatchesViewHolder (view: View) : RecyclerView.ViewHolder(view) {
-    private val HOME_TEAM_NAME : TextView = view.find(homeTeamName)
-    private val AWAY_TEAM_NAME : TextView = view.find(awayTeamName)
-    private val HOME_TEAM_SCORE : TextView = view.find(homeTeamScore)
-    private val AWAY_TEAM_SCORE : TextView = view.find(awayTeamScore)
-    private val DATE_EVENT : TextView = view.find(dateEvent)
+    private val homeName : TextView = view.find(homeTeamName)
+    private val awayName : TextView = view.find(awayTeamName)
+    private val homeScore : TextView = view.find(homeTeamScore)
+    private val awayScore : TextView = view.find(awayTeamScore)
+    private val date : TextView = view.find(dateEvent)
+    private val time : TextView = view.find(timeEvent)
 
     fun bindItem(events: EventsItem, listener: (EventsItem) -> Unit) {
         Log.i("LASTADAPTER11", events.toString())
-        HOME_TEAM_NAME.text = events.strHomeTeam
-        AWAY_TEAM_NAME.text = events.strAwayTeam
-        DATE_EVENT.text = changeDate(events.dateEvent)
+        homeName.text = events.strHomeTeam
+        awayName.text = events.strAwayTeam
+        date.text = changeDate(events.dateEvent)
         if (events.intHomeScore != "null") {
-            HOME_TEAM_SCORE.text = events.intHomeScore
-            AWAY_TEAM_SCORE.text = events.intAwayScore
+            homeScore.text = events.intHomeScore
+            awayScore.text = events.intAwayScore
         } else {
-            HOME_TEAM_SCORE.text = "?"
-            AWAY_TEAM_SCORE.text = "?"
+            homeScore.text = "-"
+            awayScore.text = "-"
+        }
+        if (events.strTime.equals("00:00:00+00:00")) {
+            time.text = "-"
+        } else {
+            Log.i("TIME", events.strTime.toString())
+            val dateZero = baseTime(toGMTformat(events.dateEvent.toString(), events.strTime.toString())) + " WIB"
+            time.text = dateZero
+
         }
         itemView.setOnClickListener {
             listener(events)

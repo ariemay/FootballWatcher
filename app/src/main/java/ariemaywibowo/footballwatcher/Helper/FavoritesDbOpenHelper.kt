@@ -21,22 +21,26 @@ class FavoritesDbOpenHelper(context : Context) : ManagedSQLiteOpenHelper(context
 
     override fun onCreate(db: SQLiteDatabase) {
         db.createTable(EventsItem.TABLE_FAVORITES, true,
-            EventsItem.ID to INTEGER + PRIMARY_KEY + AUTOINCREMENT,
-            EventsItem.DATE_EVENT to TEXT,
-            EventsItem.ID_AWAY_TEAM to TEXT,
-            EventsItem.ID_EVENT to TEXT,
-            EventsItem.ID_HOME_TEAM to TEXT,
-            EventsItem.ID_LEAGUE to TEXT,
-            EventsItem.INT_AWAY_SCORE to TEXT,
-            EventsItem.INT_HOME_SCORE to TEXT,
-            EventsItem.STR_AWAY_TEAM to TEXT,
-            EventsItem.STR_HOME_TEAM to TEXT)
+                EventsItem.ID to INTEGER + PRIMARY_KEY + AUTOINCREMENT,
+                EventsItem.DATE_EVENT to TEXT,
+                EventsItem.TIME_EVENT to TEXT,
+                EventsItem.ID_AWAY_TEAM to TEXT,
+                EventsItem.ID_EVENT to TEXT,
+                EventsItem.ID_HOME_TEAM to TEXT,
+                EventsItem.ID_LEAGUE to TEXT,
+                EventsItem.INT_AWAY_SCORE to TEXT,
+                EventsItem.INT_HOME_SCORE to TEXT,
+                EventsItem.STR_AWAY_TEAM to TEXT,
+                EventsItem.STR_HOME_TEAM to TEXT)
 
         db.createTable(TeamsItem.TABLE_TEAM_FAV, true,
-            TeamsItem.IDLONG to INTEGER + PRIMARY_KEY + AUTOINCREMENT,
-            TeamsItem.ID_TEAM to TEXT,
-            TeamsItem.STR_TEAM to TEXT,
-            TeamsItem.STR_TEAM_BADGE to TEXT)
+                TeamsItem.IDLONG to INTEGER + PRIMARY_KEY + AUTOINCREMENT,
+                TeamsItem.ID_TEAM to TEXT,
+                TeamsItem.STR_TEAM to TEXT,
+                TeamsItem.STR_TEAM_BADGE to TEXT,
+                TeamsItem.STR_STADIUM to TEXT,
+                TeamsItem.STR_MANAGER to TEXT,
+                TeamsItem.STR_TEAMART to TEXT)
     }
 
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
@@ -47,4 +51,4 @@ class FavoritesDbOpenHelper(context : Context) : ManagedSQLiteOpenHelper(context
 }
 
 val Context.database: FavoritesDbOpenHelper
-get() = FavoritesDbOpenHelper.getInstance(applicationContext)
+    get() = FavoritesDbOpenHelper.getInstance(applicationContext)

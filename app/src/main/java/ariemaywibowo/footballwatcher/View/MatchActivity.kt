@@ -217,6 +217,8 @@ class MatchActivity : AppCompatActivity(), MainView {
             if (data.size < 1) {
                 Toast.makeText(this@MatchActivity, "No Data", Toast.LENGTH_SHORT).show()
             } else {
+                leagueSpinner.visibility = View.INVISIBLE
+                tabs_main.visibility = View.INVISIBLE
                 last_matches.adapter = LastMatchesAdapter(this@MatchActivity, data, { data -> toNextActivity(data) })
                 next_matches.adapter = NextMatchesAdapter(this@MatchActivity, data, { data -> toNextActivity(data) })
             }
@@ -234,6 +236,7 @@ class MatchActivity : AppCompatActivity(), MainView {
             when (item.itemId) {
                 R.id.Matches -> {
                     leagueSpinner.visibility = View.VISIBLE
+                    tabs_main.visibility = View.VISIBLE
                     menu = 1
                     title = getString(R.string.Matches)
                     callSpinner(menu)
@@ -244,7 +247,6 @@ class MatchActivity : AppCompatActivity(), MainView {
                 R.id.favorites -> {
                     menu = 2
                     title = getString(R.string.favorites)
-                    callSpinner(menu)
                     containerToShow("0", menu)
                     Log.d("ACT", "FAV")
                     true

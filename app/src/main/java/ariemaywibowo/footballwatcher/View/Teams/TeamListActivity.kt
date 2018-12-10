@@ -163,6 +163,7 @@ class TeamListActivity : AppCompatActivity(), MainView {
             val data : MutableList<TeamsItem>
             Log.i("DATAFAV", "start?")
             data = presenter.getFav(this@TeamListActivity)
+            teamSpinner.visibility = View.INVISIBLE
             if (data.size < 1) {
                 Toast.makeText(this@TeamListActivity, "No Data", Toast.LENGTH_SHORT).show()
             } else {
@@ -190,7 +191,6 @@ class TeamListActivity : AppCompatActivity(), MainView {
                 R.id.favorites -> {
                     navMenu = 2
                     title = getString(R.string.favorites)
-                    callSpinner(navMenu)
                     containerToShow("0", navMenu)
                     true
                 }
@@ -214,11 +214,11 @@ class TeamListActivity : AppCompatActivity(), MainView {
 
     private fun toDetailTeam(teams: TeamsItem) {
         val idTeam = teams.idTeam.toString()
-        val strTeam = teams.strTeam.toString()
+//        val strTeam = teams.strTeam.toString()
         val toFav = teams
         val showDetailActivityIntent = Intent(this, PlayerActivity::class.java)
         showDetailActivityIntent.putExtra("ID_TEAM", idTeam)
-        showDetailActivityIntent.putExtra("NAME_TEAM", strTeam)
+//        showDetailActivityIntent.putExtra("NAME_TEAM", strTeam)
         showDetailActivityIntent.putExtra("TO_FAV", toFav)
         startActivity(showDetailActivityIntent)
     }

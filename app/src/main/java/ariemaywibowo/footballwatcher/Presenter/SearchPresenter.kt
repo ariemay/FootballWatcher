@@ -16,6 +16,7 @@ class SearchPresenter {
             for (i in 0 until message.length()) {
                 val data = message.getJSONObject(i)
                 val dateEvent = data.getString("dateEvent")
+                val timeEvent = data.getString("strTime")
                 val idAwayTeam = data.getString("idAwayTeam")
                 val idEvent = data.getString("idEvent")
                 val idHomeTeam = data.getString("idHomeTeam")
@@ -25,16 +26,19 @@ class SearchPresenter {
                 val strAwayTeam = data.getString("strAwayTeam")
                 val strHomeTeam = data.getString("strHomeTeam")
                 dataList.add(
-                    EventsItem(
-                        i.toLong(), dateEvent, idAwayTeam,
-                        idEvent,
-                        idHomeTeam,
-                        idLeague,
-                        intAwayScore,
-                        intHomeScore,
-                        strAwayTeam,
-                        strHomeTeam
-                    )
+                        EventsItem(
+                                i.toLong(),
+                                dateEvent,
+                                timeEvent,
+                                idAwayTeam,
+                                idEvent,
+                                idHomeTeam,
+                                idLeague,
+                                intAwayScore,
+                                intHomeScore,
+                                strAwayTeam,
+                                strHomeTeam
+                        )
                 )
                 Log.i("DATALIST", dataList.toString())
             }

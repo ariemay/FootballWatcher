@@ -25,7 +25,6 @@ import retrofit2.Response
 class PlayerPresenter (private val view: PlayerActivity) {
 
     fun getPlayerList (teamID : String?, callback: OutputServerStats) {
-        view.showLoading()
         val newRetroServ: RetroService? = ServUtils.apiService
         if (teamID != null) {
             newRetroServ?.getPlayers(teamID)?.enqueue(object: Callback<ResponseBody> {
@@ -44,7 +43,6 @@ class PlayerPresenter (private val view: PlayerActivity) {
                 }
             })
         }
-        view.hideLoading()
     }
 
     fun isFavorite(context: Context, data: TeamsItem): Boolean {
@@ -66,8 +64,8 @@ class PlayerPresenter (private val view: PlayerActivity) {
         try {
             context.database.use {
                 delete(TeamsItem.TABLE_TEAM_FAV,
-                    TeamsItem.ID_TEAM + " = {id}",
-                    "id" to data.idTeam.toString())
+                        TeamsItem.ID_TEAM + " = {id}",
+                        "id" to data.idTeam.toString())
                 Log.i("DELETE", data.idTeam.toString())
             }
         } catch (e: SQLiteConstraintException) {
@@ -90,12 +88,12 @@ class PlayerPresenter (private val view: PlayerActivity) {
                 val strCutout = data.getString("strCutout")
                 val strPosition = data.getString("strPosition")
                 dataList.add(
-                    PlayerItem(
-                        i.toLong(), idPlayer,
-                        strPlayer,
-                        strCutout,
-                        strPosition
-                    )
+                        PlayerItem(
+                                i.toLong(), idPlayer,
+                                strPlayer,
+                                strCutout,
+                                strPosition
+                        )
                 )
 
             }
@@ -110,10 +108,13 @@ class PlayerPresenter (private val view: PlayerActivity) {
         try {
             context.database.use {
                 insert(TeamsItem.TABLE_TEAM_FAV,
-                    TeamsItem.IDLONG to data.id,
-                    TeamsItem.ID_TEAM to data.idTeam,
-                    TeamsItem.STR_TEAM to data.strTeam,
-                    TeamsItem.STR_TEAM_BADGE to data.strTeamBadge
+                        TeamsItem.IDLONG to data.id,
+                        TeamsItem.ID_TEAM to data.idTeam,
+                        TeamsItem.STR_TEAM to data.strTeam,
+                        TeamsItem.STR_TEAM_BADGE to data.strTeamBadge,
+                        TeamsItem.STR_STADIUM to data.strStadium,
+                        TeamsItem.STR_MANAGER to data.strManager,
+                        TeamsItem.STR_TEAMART to data.strTeamFanart1
                 )
             }
         } catch (e: SQLiteConstraintException) {
