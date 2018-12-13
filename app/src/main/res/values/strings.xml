@@ -14,7 +14,8 @@
     <string name="strip">-</string>
     <string name="Home">Home</string>
     <string name="Away">Away</string>
-    <string name="favorites">Favorites</string>
+    <string name="favorites">MFav</string>
+    <string name="teamfav">TFav</string>
     <string name="search">Search</string>
     <string name="last_match">Last Match</string>
     <string name="next_match">Next Match</string>
@@ -46,4 +47,6 @@
     <string name="stadium">Allianz Stadium</string>
     <string name="coach">Massimiliano Allegri</string>
     <string name="time">10:20</string>
+    <string name="back">Back</string>
+    <string name="no_data">No Data . . .</string>
 </resources>
